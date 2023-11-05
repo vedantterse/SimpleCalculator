@@ -5,7 +5,8 @@ print('''\033[95mENTER THE OPTIONS ACCORDING TO THE ACTIONS YOU WANT TO PERFORM 
     \033[94mADDITION\033[0m:\033[93m 2\033[0m
     \033[94mSUBTRACTION\033[0m:\033[93m 3\033[0m
     \033[94mMULTIPLICATION\033[0m:\033[93m 4\033[0m
-    \033[94mDIVISION\033[0m:\033[93m 5\033[0m''')
+    \033[94mDIVISION\033[0m:\033[93m 5\033[0m
+    \033[94mEXPONENTIATION\033[0m:\033[93m 6\033[0m''')
 print('(PRESS \033[91m exit\033[0m WHEN YOU NO LONGER NEED THE LOOP)')
 exit_p = False
 
@@ -15,7 +16,7 @@ while True:
         if w.lower() == 'exit':
             exit_p = True
             break
-        if w in ['1', '2', '3', '4', '5']:
+        if w in ['1', '2', '3', '4', '5', '6']:
             break
         else:
             print('\033[91mEnter a valid value!!\033[0m')
@@ -45,12 +46,12 @@ while True:
                     break
                 number_list = numbers.split()
 
-                sum = 0
+                summation = 0
                 for num_str in number_list:
                     num = int(num_str)
-                    sum += num
+                    summation += num
 
-                print(f'The sum is: \033[92m{sum}\033[0m' )
+                print(f'The sum is: \033[92m{summation}\033[0m' )
                 continue
             except ValueError:
                 print('\033[91mInvalid input\033[0m')
@@ -108,6 +109,29 @@ while True:
                     dividend /= divisor
 
                 print(f'The division result is: \033[92m{dividend}\033[0m ')
+                continue
 
             except ValueError:
                 print('\033[91mInvalid input\033[0m')
+                continue
+                        
+    elif w == '6':
+        print('\033[38;5;45mEXPONENTIATION\033[0m')
+        while True:
+            try:
+                base = input("Enter the base number: ")
+                if base.lower() == 'exit':
+                    break
+                exponent = input("Enter exponent number: ")
+                if exponent.lower() == 'exit':
+                    break
+
+                base = int(base)
+                exponent = int(exponent)
+                result = base ** exponent
+
+                print(f'The result of {base} raised to the power of {exponent} is: \033[92m{result}\033[0m ')
+                continue
+            except ValueError:
+                print('\033[91mInvalid input\033[0m')
+                continue
